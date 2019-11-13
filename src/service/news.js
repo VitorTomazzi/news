@@ -11,9 +11,9 @@ export async function getArticles() {
       `${articles_url}?country=${country_code}&category=${category}`,
       {
         headers: {
-          'X-API-KEY': API_KEY,,
+          'X-API-KEY': API_KEY,
         },
-      }
+      },
     );
 
     let result = await articles.json();
@@ -23,4 +23,3 @@ export async function getArticles() {
     throw error;
   }
 }
-

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Alert} from 'react-native';
 import {
   Container,
   Content,
@@ -15,7 +15,32 @@ import {
 import {getArticles} from '../../service/news';
 
 export default class Tab1 extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      data: null,
+    };
+  }
+
+  componentDidMount() {
+    getArticles().then(
+      data => {
+        this.setState({
+          isLoading: false,
+          data: data,
+        });
+      },
+      error => {
+        Alert.alert('Error', 'Something went wrong');
+      },
+    );
+  }
+
   render() {
+    console.log(this.state.data);
+
     return (
       <Container>
         <Content>
@@ -25,7 +50,7 @@ export default class Tab1 extends Component {
                 <Thumbnail square source={{uri: 'Image URL'}} />
               </Left>
               <Body>
-                <Text>Sankhadeep</Text>
+                <Text>This is the title</Text>
                 <Text note numberOfLines={2}>
                   Its time to build a difference . .
                 </Text>
