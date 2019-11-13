@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
-import {Container, Header, Content, Tab, Tabs} from 'native-base';
+import {
+  Container,
+  Header,
+  Title,
+  Left,
+  Body,
+  Right,
+  Content,
+  Tab,
+  Tabs,
+} from 'native-base';
 import Tab1 from './tabs/Tab1';
 import Tab2 from './tabs/Tab2';
 import Tab3 from './tabs/Tab3';
@@ -8,15 +18,36 @@ export default class TabsExample extends Component {
   render() {
     return (
       <Container>
-        <Header hasTabs />
-        <Tabs>
-          <Tab heading="Tab1">
+        <Header style={{backgroundColor: 'black'}} hasTabs>
+          <Left />
+          <Body>
+            <Title style={{color: 'white'}}>Daily News</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Tabs tabBarUnderlineStyle={{backgroundColor: 'black'}}>
+          <Tab
+            tabStyle={{backgroundColor: '#00acee'}}
+            activeTabStyle={{backgroundColor: '#00acee'}}
+            textStyle={{color: 'black'}}
+            activeTextStyle={{color: 'black'}}
+            heading="Tab1">
             <Tab1 />
           </Tab>
-          <Tab heading="Tab2">
+          <Tab
+            tabStyle={{backgroundColor: '#00acee'}}
+            activeTabStyle={{backgroundColor: '#00acee'}}
+            textStyle={{color: 'black'}}
+            activeTextStyle={{color: 'black'}}
+            heading="Tab2">
             <Tab2 />
           </Tab>
-          <Tab heading="Tab3">
+          <Tab
+            tabStyle={{backgroundColor: '#00acee'}}
+            activeTabStyle={{backgroundColor: '#00acee'}}
+            textStyle={{color: 'black'}}
+            activeTextStyle={{color: 'black'}}
+            heading="Tab3">
             <Tab3 />
           </Tab>
         </Tabs>
