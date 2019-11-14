@@ -1,16 +1,7 @@
 import React, {Component} from 'react';
-import {Text, View, Alert} from 'react-native';
-import {
-  Container,
-  Content,
-  List,
-  ListItem,
-  Thumbnail,
-  Left,
-  Body,
-  Right,
-  Button,
-} from 'native-base';
+import {Text, View, Alert, ActivityIndicator} from 'react-native';
+import {Container, Content, List} from 'native-base';
+import DataItem from '../components/dataItem';
 
 import {getArticles} from '../../service/news';
 
@@ -39,30 +30,25 @@ export default class Tab1 extends Component {
   }
 
   render() {
-    console.log(this.state.data);
+    //console.log('++++++======++++++', this.state.data);
+
+    let view = this.state.isLoading ? (
+      <View>
+        <ActivityIndicator animating={this.state.isLoading} />
+        <Text style={{marginTop: 50}}> Loading... </Text>
+      </View>
+    ) : (
+      <List
+        dataArray={this.state.data}
+        renderRow={item => {
+          return <DataItem data={item} />;
+        }}
+      />
+    );
 
     return (
       <Container>
-        <Content>
-          <List>
-            <ListItem thumbnail>
-              <Left>
-                <Thumbnail square source={{uri: 'Image URL'}} />
-              </Left>
-              <Body>
-                <Text>This is the title</Text>
-                <Text note numberOfLines={2}>
-                  Its time to build a difference . .
-                </Text>
-              </Body>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-          </List>
-        </Content>
+        <Content>{view}</Content>
       </Container>
     );
   }
