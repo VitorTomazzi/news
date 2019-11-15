@@ -58,7 +58,7 @@ export default class Tab1 extends Component {
       <List
         dataArray={this.state.data}
         renderRow={item => {
-          return <DataItem data={item} />;
+          return <DataItem onPress={this.handleDataItemOnPress} data={item} />;
         }}
       />
     );
