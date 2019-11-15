@@ -6,7 +6,6 @@ import {
   Left,
   Body,
   Right,
-  Content,
   Tab,
   Tabs,
 } from 'native-base';

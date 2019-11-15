@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import {
-  ListItem,
-  Left,
-  Thumbnail,
-  Body,
-  Text,
-  Right,
-  Button,
-} from 'native-base';
+import {ListItem, Left, Thumbnail, Body, Right, Button} from 'native-base';
+import {Text, View} from 'react-native';
+import Time from './time';
 
 export default class DataItem extends Component {
   constructor(props) {
@@ -34,6 +28,17 @@ export default class DataItem extends Component {
           <Text note numberOfLines={2}>
             {this.data.description}
           </Text>
+          <View
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              marginTop: 8,
+              marginLeft: 0,
+            }}>
+            <Text note>{this.data.source.name}</Text>
+            <Time time={this.data.publishedAt} />
+          </View>
         </Body>
         <Right>
           <Button transparent>
