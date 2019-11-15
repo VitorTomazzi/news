@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, View, Alert, ActivityIndicator} from 'react-native';
 import {Container, Content, List} from 'native-base';
 import DataItem from '../components/dataItem';
+import ModalComponent from '../components/modal';
 
 import {getArticles} from '../../service/news';
 
@@ -12,8 +13,24 @@ export default class Tab1 extends Component {
     this.state = {
       isLoading: true,
       data: null,
+      setModalVisible: false,
+      modalArticleData: {},
     };
   }
+
+  handleDataItemOnPress = articleData => {
+    this.setState({
+      setModalVisible: true,
+      modalArticleData: articleData,
+    });
+  };
+
+  handleModalClose = () => {
+    this.setState({
+      setModalVisible: false,
+      modalArticleData: {},
+    });
+  };
 
   componentDidMount() {
     getArticles().then(
@@ -49,6 +66,11 @@ export default class Tab1 extends Component {
     return (
       <Container>
         <Content>{view}</Content>
+        <ModalComponent
+          showModal={this.state.setModalVisible}
+          articleData={this.state.modalArticleData}
+          onClose={this.handleModalClose}
+        />
       </Container>
     );
   }

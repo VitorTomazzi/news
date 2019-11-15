@@ -30,7 +30,7 @@ export default class TabsExample extends Component {
             activeTabStyle={{backgroundColor: '#00acee'}}
             textStyle={{color: 'black'}}
             activeTextStyle={{color: 'black'}}
-            heading="Tab1">
+            heading="General">
             <Tab1 />
           </Tab>
           <Tab
@@ -38,7 +38,7 @@ export default class TabsExample extends Component {
             activeTabStyle={{backgroundColor: '#00acee'}}
             textStyle={{color: 'black'}}
             activeTextStyle={{color: 'black'}}
-            heading="Tab2">
+            heading="Business">
             <Tab2 />
           </Tab>
           <Tab
@@ -46,7 +46,7 @@ export default class TabsExample extends Component {
             activeTabStyle={{backgroundColor: '#00acee'}}
             textStyle={{color: 'black'}}
             activeTextStyle={{color: 'black'}}
-            heading="Tab3">
+            heading="Technology">
             <Tab3 />
           </Tab>
         </Tabs>
