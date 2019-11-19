@@ -6,7 +6,7 @@ import ModalComponent from '../components/modal';
 
 import {getArticles} from '../../service/news';
 
-export default class Tab3 extends Component {
+export default class Tab6 extends Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +33,7 @@ export default class Tab3 extends Component {
   };
 
   componentDidMount() {
-    getArticles('technology').then(
+    getArticles('science').then(
       data => {
         this.setState({
           isLoading: false,
@@ -75,4 +75,3 @@ export default class Tab3 extends Component {
     );
   }
 }
-

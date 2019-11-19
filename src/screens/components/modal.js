@@ -8,7 +8,6 @@ import {
   Content,
   Left,
   Right,
-  Icon,
   Title,
   Button,
 } from 'native-base';
@@ -22,7 +21,8 @@ export default class ModalComponent extends Component {
     return this.props.onClose();
   };
 
-  handleShare = () => {};
+  //share article functionality will be added
+  //handleShare = () => {};
 
   render() {
     const {showModal, articleData} = this.props;
@@ -54,13 +54,14 @@ export default class ModalComponent extends Component {
               </Right>
             </Header>
             <Content>
-              <WebView
+              {/* <WebView
                 source={{uri: url}}
                 style={{flex: 1}}
                 onError={this.handleClose}
                 startInLoadingState
                 scalesPageToFit
-              />
+              /> */}
+              <Text>Hello World</Text>
             </Content>
           </Container>
         </Modal>

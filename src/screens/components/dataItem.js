@@ -7,12 +7,13 @@ export default class DataItem extends Component {
   constructor(props) {
     super(props);
     this.data = props.data;
+    this.handlePress = this.handlePress.bind(this);
   }
 
   handlePress = () => {
-      const {url, title} = this.data;
-      this.props.onPress({url, title});
-  }
+    const {url, title} = this.data;
+    this.props.onPress({url, title});
+  };
 
   render() {
     return (
