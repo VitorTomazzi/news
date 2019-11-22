@@ -1,16 +1,7 @@
 import React, {Component} from 'react';
-import {Dimensions, Modal, Share, Text} from 'react-native';
+import {Modal, Text} from 'react-native';
 import {WebView} from 'react-native-webview';
-import {
-  Container,
-  Header,
-  Body,
-  Content,
-  Left,
-  Right,
-  Title,
-  Button,
-} from 'native-base';
+import {Container, Header, Body, Left, Right, Title, Button} from 'native-base';
 
 export default class ModalComponent extends Component {
   constructor(props) {
@@ -53,16 +44,14 @@ export default class ModalComponent extends Component {
                 </Button>
               </Right>
             </Header>
-            <Content>
-              {/* <WebView
-                source={{uri: url}}
-                style={{flex: 1}}
-                onError={this.handleClose}
-                startInLoadingState
-                scalesPageToFit
-              /> */}
-              <Text>Hello World</Text>
-            </Content>
+            <WebView
+              source={{uri: url}}
+              style={{flex: 1, backgroundColor: '#fff'}}
+              onError={this.handleClose}
+              startInLoadingState
+              scalesPageToFit
+              useWebKit={true}
+            />
           </Container>
         </Modal>
       );
