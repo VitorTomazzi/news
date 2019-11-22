@@ -56,7 +56,7 @@ export default class Login extends Component {
   }
 
   login = () => {
-    fetch('http://192.168.64.2:3000/newsapp', {
+    fetch('Enter IP Address Here', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

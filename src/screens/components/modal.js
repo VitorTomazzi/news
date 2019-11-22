@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Modal, Text} from 'react-native';
+import {Modal, Text, Share} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {Container, Header, Body, Left, Right, Title, Button} from 'native-base';
 
@@ -13,7 +13,14 @@ export default class ModalComponent extends Component {
   };
 
   //share article functionality will be added
-  //handleShare = () => {};
+  handleShare = () => {
+    const {url, title} = this.props.articleData;
+    let message = `${title}\n\nRead more at ${url}\n\nShared via Daily News`;
+    return Share.share(
+      {title, message, url: message},
+      {dialogueTitle: `Share ${title}`},
+    );
+  };
 
   render() {
     const {showModal, articleData} = this.props;
